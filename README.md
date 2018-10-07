@@ -1,6 +1,15 @@
 # Colossal cave adventure
 
-work in progress, already playable, save functionality not working
+This is a faithful port of the “Adventure” game to a Mycroft Skill from the original 1977 FORTRAN code by Crowther and Woods
+
+- who made cave adventure
+- play cave adventure
+- enter building
+- get food
+- save
+- quit
+- resume cave adventure
+
 
 # output
 
@@ -34,3 +43,7 @@ work in progress, already playable, save functionality not working
     >> ok
     get lamp
     >> ok
+
+# Credits
+
+[python-adventure](https://github.com/brandon-rhodes/python-adventure) - python port of the game

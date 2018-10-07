@@ -9,7 +9,7 @@ from mycroft.skills.core import intent_handler
 
 
 class ColossalCaveAdventureSkill(MycroftSkill):
-    save_file = "/cave_adventure.save"
+    save_file = expanduser("~/cave_adventure.save")
     playing = False
     container = None
 
@@ -92,14 +92,15 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         if not self.playing:
             self.speak_dialog("save.not.found")
         else:
-            self.game.save(self.save_file)
-            self.speak_dialog("game.saved")
+            with open(self.save_file, "wb") as f:
+                self.game.t_suspend("save", f)
+                self.speak_dialog("game.saved")
 
     @intent_file_handler("restore.intent")
     def handle_restore(self, message):
         if exists(self.save_file):
             self.playing = True
-            self.game.resume(self.save_file)
+            self.game = Game.resume(self.save_file)
             self.speak_dialog("restore.game")
         else:
             self.speak_dialog("save.not.found")
