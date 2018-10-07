@@ -2,7 +2,6 @@ from mycroft.skills.core import MycroftSkill, intent_file_handler
 from adventure import load_advent_dat
 from adventure.game import Game
 from os.path import exists, expanduser
-from os import listdir, join
 from padatious import IntentContainer
 import time
 from adapt.intent import IntentBuilder
@@ -13,9 +12,9 @@ class ColossalCaveAdventureSkill(MycroftSkill):
     save_file = "/cave_adventure.save"
     playing = False
     container = None
-    game = Game()
 
     def initialize(self):
+        self.game = Game()
         load_advent_dat(self.game)
         self.last_interaction = time.time()
         self._init_padatious()
@@ -116,6 +115,8 @@ class ColossalCaveAdventureSkill(MycroftSkill):
             if self.game.is_finished or timed_out:
                 self.disable_intent("Save")
                 self.playing = False
+                self.game = Game()
+                load_advent_dat(self.game)
             # save game to allow restoring if timedout
             if timed_out:
                 self.handle_save()
