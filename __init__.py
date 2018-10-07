@@ -2,8 +2,11 @@ from mycroft.skills.core import MycroftSkill, intent_file_handler
 from adventure import load_advent_dat
 from adventure.game import Game
 from os.path import exists, expanduser
+from os import listdir, join
 from padatious import IntentContainer
 import time
+from adapt.intent import IntentBuilder
+from mycroft.skills.core import intent_handler
 
 
 class ColossalCaveAdventureSkill(MycroftSkill):
@@ -24,17 +27,20 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         # PR incoming
         intent_cache = expanduser(self.config_core['padatious']['intent_cache'])
         self.container = IntentContainer(intent_cache)
-        # ignoring credits intent on purpose
-        for intent in ["save.intent", "restore.intent"]:
+        for intent in ["restore.intent", "play.intent", "credits.intent"]:
             name = str(self.skill_id) + ':' + intent
             filename = self.find_resource(intent, 'vocab')
-            if exists(filename):
+            if filename is not None:
                 with open(filename, "r") as f:
                     self.container.add_intent(name, f.readlines())
         self.container.train()
 
     def will_trigger(self, utterance):
         # check if self will trigger for given utterance
+        # adapt match
+        if self.voc_match(utterance, "save"):
+            return True
+        # padatious match
         intent = self.container.calc_intent(utterance)
         if intent.conf < 0.5:
             return False
@@ -70,6 +76,7 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         self.last_interaction = time.time()
         self.maybe_end_game()
 
+    @intent_file_handler("credits.intent")
     def handle_credits(self, message=None):
         self.speak_dialog("credits")
 
@@ -80,7 +87,8 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         self.game.start()
         self.speak_output(self.game.output)
 
-    @intent_file_handler("save.intent")
+    @intent_handler(IntentBuilder("Save").require("save")
+                    .optionally("cave").optionally("adventure"))
     def handle_save(self, message=None):
         if not self.playing:
             self.speak_dialog("save.not.found")
@@ -106,7 +114,7 @@ class ColossalCaveAdventureSkill(MycroftSkill):
             timed_out = time.time() - self.last_interaction > 10*3600
             # disable save and gameplay
             if self.game.is_finished or timed_out:
-                self.disable_intent("save.intent")
+                self.disable_intent("Save")
                 self.playing = False
             # save game to allow restoring if timedout
             if timed_out:
