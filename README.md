@@ -4,13 +4,6 @@ work in progress, already playable, save functionality not working
 
 # output
 
-    /home/user/PycharmProjects/core/.venv/bin/python /home/user/PycharmProjects/core/mycroft/client/text/main.py --simple
-    00:10:55.808 - mycroft.configuration.config:load_local:124 - DEBUG - Configuration /home/user/PycharmProjects/core/mycroft/configuration/mycroft.conf loaded
-    00:10:56.059 - mycroft.configuration.config:load_local:124 - DEBUG - Configuration /home/user/PycharmProjects/core/mycroft/configuration/mycroft.conf loaded
-    00:10:56.170 - mycroft.configuration.config:load_local:129 - DEBUG - Configuration '/etc/mycroft/mycroft.conf' not found
-    00:10:56.293 - mycroft.configuration.config:load_local:124 - DEBUG - Configuration /home/user/.chatterbox/mycroft.conf loaded
-    00:10:56.423 - mycroft.configuration.config:load_local:129 - DEBUG - Configuration '/etc/mycroft/mycroft.conf' not found
-    00:10:56.524 - mycroft.configuration.config:load_local:124 - DEBUG - Configuration /home/user/.chatterbox/mycroft.conf loaded
     00:10:56.666 - mycroft.messagebus.client.ws:on_open:63 - INFO - Connected
     >> thank you for installing Colossal Cave Adventure Skill!
     play cave adventure
