@@ -1,20 +1,14 @@
-# Colossal cave adventure
+# <img src='https://rawgithub.com/FortAwesome/Font-Awesome/master/advanced-options/raw-svg/solid/gem.svg' card_color='#0E3A65' width='50' height='50' style='vertical-align:bottom'/> Colossal Cave Adventure
+skill for Adventure game by Crowther and Woods
 
-This is a faithful port of the “Adventure” game to a Mycroft Skill from the original 1977 FORTRAN code by Crowther and Woods
+## About 
 
-- who made cave adventure
-- play cave adventure
-- enter building
-- get food
-- save
-- quit
-- resume cave adventure
+This is a faithful port of the “Adventure” game to a Mycroft Skill from the original 1977 FORTRAN code by Crowther and Woods.
 
+Adapted from [python-adventure](https://github.com/brandon-rhodes/python-adventure), the python port of the game
 
-# output
+# how to play
 
-    00:10:56.666 - mycroft.messagebus.client.ws:on_open:63 - INFO - Connected
-    >> thank you for installing Colossal Cave Adventure Skill!
     play cave adventure
     >> welcome to adventure!! would you like instructions?
     yes
@@ -37,13 +31,24 @@ This is a faithful port of the “Adventure” game to a Mycroft Skill from the 
     >> 
     get food
     >> ok
-    get water
-    >> ok
-    get keys
-    >> ok
     get lamp
     >> ok
 
-# Credits
 
-[python-adventure](https://github.com/brandon-rhodes/python-adventure) - python port of the game
+
+## Examples 
+* " play cave adventure"
+* "who made cave adventure"
+* "save"
+* "resume cave adventure"
+
+## Credits 
+@JarbasAl
+
+## Category
+**Entertainment**
+
+## Tags
+#game
+#adventure
+#cave
