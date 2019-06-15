@@ -18,7 +18,7 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         load_advent_dat(self.game)
         self.last_interaction = time.time()
         self._init_padatious()
-        self.disable_intent("save.intent")
+        self.disable_intent("Save")
 
     def _init_padatious(self):
         # i want to check in converse method if some intent by this skill will trigger
@@ -71,9 +71,12 @@ class ColossalCaveAdventureSkill(MycroftSkill):
         line = line.replace("\n", " ").replace("(", "").replace(")", "").replace("etc.", "etc")
         lines = line.split(".")
         for line in lines:
-            self.speak(line.strip(), expect_response=True, wait=True)
+            if line.strip():
+                self.speak(line.strip())
         self.last_interaction = time.time()
         self.maybe_end_game()
+        # HACK this is a workaround for a core bug, skill is only booted to top of converse list after next intent interaction
+        self.make_active()
 
     @intent_file_handler("credits.intent")
     def handle_credits(self, message=None):
@@ -82,7 +85,7 @@ class ColossalCaveAdventureSkill(MycroftSkill):
     @intent_file_handler("play.intent")
     def handle_play(self, message=None):
         self.playing = True
-        self.enable_intent("save.intent")
+        self.enable_intent("Save")
         self.game.start()
         self.speak_output(self.game.output)
 
@@ -148,9 +151,9 @@ class ColossalCaveAdventureSkill(MycroftSkill):
                 return False
             # capture speech and pipe to the game
             words = ut.split(" ")
-            if words:
-                self.speak_output(self.game.do_command(words))
-                return True
+            self.speak_output(self.game.do_command(words))
+            self.make_active()
+            return True
         return False
 
 
