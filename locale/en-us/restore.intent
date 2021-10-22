@@ -1,6 +1,1 @@
-resume colossal cave
-restore colossal cave
-resume colossal cave adventure
-restore colossal cave adventure
-resume cave adventure
-restore cave adventure
+(resume|restore|load) (colossal cave|colossal cave adventure|cave adventure)

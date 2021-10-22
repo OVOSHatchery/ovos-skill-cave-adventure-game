@@ -1,1 +1,1 @@
-git+https://github.com/brandon-rhodes/python-adventure
+ovos_workshop>=0.0.5a4
