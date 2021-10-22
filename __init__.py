@@ -58,6 +58,11 @@ class ColossalCaveAdventureSkill(OVOSSkill):
         line = line.replace("\n", " ").replace("(", "").replace(")",
                                                                 "").replace(
             "etc.", "etc")
+
+        # TODO nice background picture
+        self.gui["text"] = line
+        self.gui.show_page("text.qml")
+
         lines = line.split(".")
         for line in lines:
             if line.strip():
