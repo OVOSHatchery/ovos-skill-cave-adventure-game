@@ -36,9 +36,9 @@ def get_requirements(requirements_filename: str = "requirements.txt"):
 
 # Function to find resource files
 def find_resource_files():
-    resource_base_dirs = ("locale", "ui", "vocab", "locale", "regex", "res", "adventure")
+    resource_base_dirs = ("locale", "res")
     base_dir = abspath(dirname(__file__))
-    package_data = ["*.json"]
+    package_data = ["*.json", "*.z5"]
     for res in resource_base_dirs:
         if isdir(join(base_dir, res)):
             for (directory, _, files) in walk(join(base_dir, res)):
