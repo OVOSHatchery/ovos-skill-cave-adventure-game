@@ -1,6 +1,6 @@
 {
   "skill_id": "ovos-skill-cave-adventure-game.jarbasai",
-  "source": "https://github.com/JarbasSkills/ovos-skill-cave-adventure-game",
+  "source": "https://github.com/OVOSHatchery/ovos-skill-cave-adventure-game",
   "package_name": "ovos-skill-cave-adventure-game",
   "extra_plugins": {
     "core": [],
