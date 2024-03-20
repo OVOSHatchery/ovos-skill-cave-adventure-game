@@ -1,0 +1,23 @@
+{
+  "skill_id": "ovos-skill-cave-adventure-game.jarbasai",
+  "source": "https://github.com/JarbasSkills/ovos-skill-cave-adventure-game",
+  "package_name": "ovos-skill-cave-adventure-game",
+  "extra_plugins": {
+    "core": [],
+    "PHAL": [],
+    "listener": [],
+    "audio": [],
+    "media": [],
+    "gui": []
+  },
+  "icon": "https://www.colossalcave3d.com/wp-content/uploads/2023/01/colossal-cave-feature-image.png",
+  "images": [],
+  "name": "Colossal Cave Adventure",
+  "description": "faithful port of the “Adventure” game to a OVOS Skill from the original 1977 FORTRAN code by Crowther and Woods.",
+  "examples": [
+    "play colossal cave adventure",
+    "save game",
+    "exit game"
+  ],
+  "tags": ["game", "adventure", "entertainment"]
+}

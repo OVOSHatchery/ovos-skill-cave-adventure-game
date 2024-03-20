@@ -6,8 +6,8 @@ from os import walk
 # Define package information
 SKILL_CLAZZ = "ColossalCaveAdventureSkill"  # Make sure it matches __init__.py class name
 VERSION = "0.0.1"
-URL = "https://github.com/OVOSHatchery/ovos-skill-cave-adventure"
-AUTHOR = "OpenVoiceOS"
+URL = "https://github.com/OVOSHatchery/ovos-skill-cave-adventure-game"
+AUTHOR = "jarbasAI"
 EMAIL = "jarbasai@mailfence.com"
 LICENSE = "Apache2.0"
 DESCRIPTION = SKILL_CLAZZ # TODO
@@ -36,7 +36,7 @@ def get_requirements(requirements_filename: str = "requirements.txt"):
 
 # Function to find resource files
 def find_resource_files():
-    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "res", "adventure")
+    resource_base_dirs = ("locale", "ui", "vocab", "locale", "regex", "res", "adventure")
     base_dir = abspath(dirname(__file__))
     package_data = ["*.json"]
     for res in resource_base_dirs:

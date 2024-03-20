@@ -1,6 +1,2 @@
-play Colossal Cave Adventure
-start Colossal Cave Adventure
-play Cave Adventure
-start Cave Adventure
-play Colossal Cave
-start Colossal Cave
+(start|launch|play|frotz) (adventure|colossal cave adventure|cave adventure|colossal cave)
+let's play (adventure|colossal cave adventure|cave adventure|colossal cave)

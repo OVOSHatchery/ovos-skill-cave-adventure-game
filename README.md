@@ -1,12 +1,12 @@
-# <img src='https://rawgithub.com/FortAwesome/Font-Awesome/master/advanced-options/raw-svg/solid/gem.svg' card_color='#0E3A65' width='50' height='50' style='vertical-align:bottom'/> Colossal Cave Adventure
+# Colossal Cave Adventure
 
 skill for Adventure game by Crowther and Woods
 
 ## About 
 
-This is a faithful port of the “Adventure” game to a Mycroft Skill from the original 1977 FORTRAN code by Crowther and Woods.
+This is a faithful port of the “Adventure” game to a OVOS Skill from the original 1977 FORTRAN code by Crowther and Woods.
 
-Adapted from [python-adventure](https://github.com/brandon-rhodes/python-adventure), the python port of the game
+Running via the Z-machine port
 
 # how to play
 
@@ -39,7 +39,6 @@ Adapted from [python-adventure](https://github.com/brandon-rhodes/python-adventu
 
 ## Examples 
 * " play cave adventure"
-* "who made cave adventure"
 * "save"
 * "resume cave adventure"
 
